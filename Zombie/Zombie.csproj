@@ -1,0 +1,1049 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0C3117E3-6366-48D1-9B62-ECC4F5919721}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Zombie</RootNamespace>
+    <AssemblyName>Zombie</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Zombie.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnimateImage.cs" />
+    <Compile Include="CharacterSystem\Bullet%28子弹%29\IBullet.cs" />
+    <Compile Include="CharacterSystem\Bullet%28子弹%29\SingleBullet.cs" />
+    <Compile Include="CampSystem\CampSystem.cs" />
+    <Compile Include="CampSystem\Command\ITrainCommand.cs" />
+    <Compile Include="CampSystem\Command\TrainBotanyCommand.cs" />
+    <Compile Include="CampSystem\ICamp.cs" />
+    <Compile Include="CharacterSystem\Attr%28属性%29\BulletBaseAttr.cs" />
+    <Compile Include="CharacterSystem\Attr%28属性%29\CharacterBaseAttr.cs" />
+    <Compile Include="CharacterSystem\Attr%28属性%29\ICharacterAttr.cs" />
+    <Compile Include="Factory\Bullet\BulletAttrFactory.cs" />
+    <Compile Include="Factory\Bullet\BulletBuilder.cs" />
+    <Compile Include="Factory\Bullet\BulletBuilderDirector.cs" />
+    <Compile Include="Factory\Bullet\IBulletFactory.cs" />
+    <Compile Include="Factory\Character\BotanyBuilder.cs" />
+    <Compile Include="Factory\Character\EnemyBuilder.cs" />
+    <Compile Include="GameFacade.cs" />
+    <Compile Include="IGameSystem.cs" />
+    <Compile Include="Renders\BaseObject.cs" />
+    <Compile Include="CharacterSystem\BotanyFSMSystem\BotanyAttackState.cs" />
+    <Compile Include="CharacterSystem\BotanyFSMSystem\BotanyFSMSytem.cs" />
+    <Compile Include="CharacterSystem\BotanyFSMSystem\BotanyIdleState.cs" />
+    <Compile Include="CharacterSystem\BotanyFSMSystem\IBotanyState.cs" />
+    <Compile Include="CharacterSystem\Botany%28植物%29\BotanicRepeater.cs" />
+    <Compile Include="CharacterSystem\Botany%28植物%29\IBotany.cs" />
+    <Compile Include="CharacterSystem\CharacterSystem.cs" />
+    <Compile Include="CharacterSystem\Enemy\EnemyZombie%28具体的僵尸%29.cs" />
+    <Compile Include="CharacterSystem\Enemy\IEnemy%28僵尸基类%29.cs" />
+    <Compile Include="CharacterSystem\EnemyFSMSystem%28有限状态机%29\EnemyAttackState%28攻击状态%29.cs" />
+    <Compile Include="CharacterSystem\EnemyFSMSystem%28有限状态机%29\EnemyChaseState%28追踪状态%29.cs" />
+    <Compile Include="CharacterSystem\EnemyFSMSystem%28有限状态机%29\EnemyFSMSystem%28管理,切换状态%29.cs" />
+    <Compile Include="CharacterSystem\EnemyFSMSystem%28有限状态机%29\IEnemyState%28基类%29.cs" />
+    <Compile Include="CharacterSystem\ICharacter.cs" />
+    <Compile Include="Factory\Character\AttrFactory.cs" />
+    <Compile Include="Factory\Character\BotanyFactory.cs" />
+    <Compile Include="Factory\Character\CharacterBuilderDirector.cs" />
+    <Compile Include="Factory\Character\EnemyFactory.cs" />
+    <Compile Include="Factory\Character\ICharacterBuilder.cs" />
+    <Compile Include="Factory\FactoryManager.cs" />
+    <Compile Include="Factory\Character\IAttrFactory.cs" />
+    <Compile Include="Factory\Character\ICharacterFactory.cs" />
+    <Compile Include="Forms\BattleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BattleForm.Designer.cs">
+      <DependentUpon>BattleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Renders\GardenRender.cs" />
+    <Compile Include="Renders\IRender.cs" />
+    <Compile Include="Renders\PaintLotsPictures.cs" />
+    <Compile Include="Renders\PeaBulletRender.cs" />
+    <Compile Include="Renders\Render.cs" />
+    <Compile Include="Renders\RepeaterRender.cs" />
+    <Compile Include="Renders\Zombie1Render.cs" />
+    <Compile Include="StageSystem%28责任链系统%29\IStageHandler%28父类%29.cs" />
+    <Compile Include="StageSystem%28责任链系统%29\NormalStageHandler.cs" />
+    <Compile Include="StageSystem%28责任链系统%29\StageSystem.cs" />
+    <Compile Include="State\BattleState.cs" />
+    <Compile Include="State\ISceneState.cs" />
+    <Compile Include="Forms\MainMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="State\MainMenuState.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State\SceneStateController.cs" />
+    <Compile Include="Forms\StartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subscribe\Observer\EnemyKilledObserverStageSystem.cs" />
+    <Compile Include="Subscribe\Observer\IObserver.cs" />
+    <Compile Include="Subscribe\Subject\EnemyKilledSubjectcs.cs" />
+    <Compile Include="Subscribe\Subject\ISubject.cs" />
+    <Compile Include="Subscribe\SubscribeSystem.cs" />
+    <EmbeddedResource Include="Forms\BattleForm.resx">
+      <DependentUpon>BattleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\Zombie.BattleForm.resources" />
+    <EmbeddedResource Include="obj\Debug\Zombie.MainMenuForm.resources" />
+    <EmbeddedResource Include="obj\Debug\Zombie.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\Zombie.StartForm.resources" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="bin\Debug\images\interface\Thumbs.db" />
+    <None Include="bin\Debug\images\Plants\Thumbs.db" />
+    <None Include="bin\Release\images\interface\Thumbs.db" />
+    <None Include="bin\Release\images\Plants\Thumbs.db" />
+    <None Include="bin\Release\Zombie.exe.config" />
+    <None Include="images\interface\Thumbs.db" />
+    <None Include="images\Plants\Thumbs.db" />
+    <None Include="obj\Debug\Zombie.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\Zombie.csproj.GenerateResource.cache" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PB00.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZombiesWon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Peashooter.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\images\Card\Plants\Blover.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Blover.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Cactus.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Cactus.png" />
+    <Content Include="bin\Debug\images\Card\Plants\CherryBomb.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\CherryBomb.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Chomper.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Chomper.png" />
+    <Content Include="bin\Debug\images\Card\Plants\CoffeeBean.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\CoffeeBean.png" />
+    <Content Include="bin\Debug\images\Card\Plants\DoomShroom.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\DoomShroom.png" />
+    <Content Include="bin\Debug\images\Card\Plants\FlowerPot.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\FlowerPot.png" />
+    <Content Include="bin\Debug\images\Card\Plants\FumeShroom.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\FumeShroom.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Garlic.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Garlic.png" />
+    <Content Include="bin\Debug\images\Card\Plants\GatlingPea.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\GatlingPea.png" />
+    <Content Include="bin\Debug\images\Card\Plants\GloomShroom.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\GloomShroom.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Gralic.png" />
+    <Content Include="bin\Debug\images\Card\Plants\HypnoShroom.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\HypnoShroom.png" />
+    <Content Include="bin\Debug\images\Card\Plants\IceShroom.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\IceShroom.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Jalapeno.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Jalapeno.png" />
+    <Content Include="bin\Debug\images\Card\Plants\LilyPad.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\LilyPad.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Peashooter.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Peashooter.gif" />
+    <Content Include="bin\Debug\images\Card\Plants\Peashooter.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Plantern.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Plantern.png" />
+    <Content Include="bin\Debug\images\Card\Plants\PotatoMine.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\PotatoMine.gif" />
+    <Content Include="bin\Debug\images\Card\Plants\PotatoMine.png" />
+    <Content Include="bin\Debug\images\Card\Plants\PuffShroom.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\PuffShroom.png" />
+    <Content Include="bin\Debug\images\Card\Plants\PumpkinHead.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\PumpkinHead.gif" />
+    <Content Include="bin\Debug\images\Card\Plants\PumpkinHead.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Repeater.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Repeater.png" />
+    <Content Include="bin\Debug\images\Card\Plants\ScaredyShroom.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\ScaredyShroom.png" />
+    <Content Include="bin\Debug\images\Card\Plants\SeaShroom.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\SeaShroom.png" />
+    <Content Include="bin\Debug\images\Card\Plants\SnowPea.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\SnowPea.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Spikerock.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Spikerock.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Spikeweed.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Spikeweed.png" />
+    <Content Include="bin\Debug\images\Card\Plants\SplitPea.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\SplitPea.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Squash.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Squash.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Starfruit.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Starfruit.png" />
+    <Content Include="bin\Debug\images\Card\Plants\SunFlower.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\SunFlower.png" />
+    <Content Include="bin\Debug\images\Card\Plants\SunShroom.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\SunShroom.png" />
+    <Content Include="bin\Debug\images\Card\Plants\TallNut.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\TallNut.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Threepeater.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Threepeater.png" />
+    <Content Include="bin\Debug\images\Card\Plants\Torchwood.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\Torchwood.png" />
+    <Content Include="bin\Debug\images\Card\Plants\TwinSunflower.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\TwinSunflower.gif" />
+    <Content Include="bin\Debug\images\Card\Plants\TwinSunflower.png" />
+    <Content Include="bin\Debug\images\Card\Plants\WallNut.bmp" />
+    <Content Include="bin\Debug\images\Card\Plants\WallNut.gif" />
+    <Content Include="bin\Debug\images\Card\Plants\WallNut.png" />
+    <Content Include="bin\Debug\images\FinalWave.gif" />
+    <Content Include="bin\Debug\images\icon_poolcleaner.png" />
+    <Content Include="bin\Debug\images\icon_roofcleaner.png" />
+    <Content Include="bin\Debug\images\interface\Almanac_CloseButton.png" />
+    <Content Include="bin\Debug\images\interface\Almanac_CloseButtonHighlight.png" />
+    <Content Include="bin\Debug\images\interface\Almanac_IndexBack.jpg" />
+    <Content Include="bin\Debug\images\interface\Almanac_IndexButton.png" />
+    <Content Include="bin\Debug\images\interface\Almanac_IndexButtonHighlight.png" />
+    <Content Include="bin\Debug\images\interface\Almanac_PlantBack.jpg" />
+    <Content Include="bin\Debug\images\interface\Almanac_PlantCard.png" />
+    <Content Include="bin\Debug\images\interface\Almanac_ZombieBack.jpg" />
+    <Content Include="bin\Debug\images\interface\Almanac_ZombieCard.png" />
+    <Content Include="bin\Debug\images\interface\Almanac_ZombieWindow2.png" />
+    <Content Include="bin\Debug\images\interface\AwardScreen_Back.jpg" />
+    <Content Include="bin\Debug\images\interface\background1.jpg" />
+    <Content Include="bin\Debug\images\interface\background1unsodded.jpg" />
+    <Content Include="bin\Debug\images\interface\background1unsodded2.jpg" />
+    <Content Include="bin\Debug\images\interface\background1unsodded_1.jpg" />
+    <Content Include="bin\Debug\images\interface\background2.jpg" />
+    <Content Include="bin\Debug\images\interface\background3.jpg" />
+    <Content Include="bin\Debug\images\interface\background4.jpg" />
+    <Content Include="bin\Debug\images\interface\background5.jpg" />
+    <Content Include="bin\Debug\images\interface\background6boss.jpg" />
+    <Content Include="bin\Debug\images\interface\Button.png" />
+    <Content Include="bin\Debug\images\interface\crater1.png" />
+    <Content Include="bin\Debug\images\interface\dialog_bottomleft.png" />
+    <Content Include="bin\Debug\images\interface\dialog_bottommiddle.png" />
+    <Content Include="bin\Debug\images\interface\dialog_bottomright.png" />
+    <Content Include="bin\Debug\images\interface\dialog_centerleft.png" />
+    <Content Include="bin\Debug\images\interface\dialog_centermiddle.png" />
+    <Content Include="bin\Debug\images\interface\dialog_centerright.png" />
+    <Content Include="bin\Debug\images\interface\dialog_topleft.png" />
+    <Content Include="bin\Debug\images\interface\dialog_topmiddle.png" />
+    <Content Include="bin\Debug\images\interface\dialog_topright.png" />
+    <Content Include="bin\Debug\images\interface\FlagMeterEmpty.png" />
+    <Content Include="bin\Debug\images\interface\FlagMeterFull.png" />
+    <Content Include="bin\Debug\images\interface\FlagMeterLevelProgress.png" />
+    <Content Include="bin\Debug\images\interface\FlagMeterParts1.png" />
+    <Content Include="bin\Debug\images\interface\FlagMeterParts2.png" />
+    <Content Include="bin\Debug\images\interface\GrowSoil.png" />
+    <Content Include="bin\Debug\images\interface\LogoLine.png" />
+    <Content Include="bin\Debug\images\interface\PointerDown.gif" />
+    <Content Include="bin\Debug\images\interface\PointerUP.gif" />
+    <Content Include="bin\Debug\images\interface\SeedChooser_Background.png" />
+    <Content Include="bin\Debug\images\interface\SelectorScreen_Almanac.png" />
+    <Content Include="bin\Debug\images\interface\SelectorScreen_AlmanacHighlight.png" />
+    <Content Include="bin\Debug\images\interface\Shovel.png" />
+    <Content Include="bin\Debug\images\interface\ShovelBack.png" />
+    <Content Include="bin\Debug\images\interface\sod1row.png" />
+    <Content Include="bin\Debug\images\interface\sod3row.png" />
+    <Content Include="bin\Debug\images\interface\SodRoll.png" />
+    <Content Include="bin\Debug\images\interface\SodRollCap.png" />
+    <Content Include="bin\Debug\images\interface\SunBack.png" />
+    <Content Include="bin\Debug\images\interface\trophy.png" />
+    <Content Include="bin\Debug\images\interface\ZombieNoteSmall.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\Almanac_ZombieWindow2.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\AwardScreen_Back.jpg" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\Button.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\dialog_bottomleft.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\dialog_bottommiddle.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\dialog_bottomright.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\dialog_centerleft.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\dialog_centermiddle.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\dialog_centerright.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\dialog_topleft.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\dialog_topmiddle.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\dialog_topright.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\FlagMeterEmpty.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\FlagMeterFull.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\FlagMeterLevelProgress.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\FlagMeterParts1.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\FlagMeterParts2.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\SeedChooser_Background.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\SelectorScreen_Almanac.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\Shovel.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\ShovelBack.png" />
+    <Content Include="bin\Debug\images\interface\_vti_cnf\SunBack.png" />
+    <Content Include="bin\Debug\images\LargeWave.gif" />
+    <Content Include="bin\Debug\images\LawnMower.gif" />
+    <Content Include="bin\Debug\images\Logo.jpg" />
+    <Content Include="bin\Debug\images\plantshadow32.png" />
+    <Content Include="bin\Debug\images\plantshadow8.png" />
+    <Content Include="bin\Debug\images\Plants\Blover\Blover.gif" />
+    <Content Include="bin\Debug\images\Plants\Cactus\Cactus.gif" />
+    <Content Include="bin\Debug\images\Plants\CherryBomb\Boom.gif" />
+    <Content Include="bin\Debug\images\Plants\CherryBomb\CherryBomb.gif" />
+    <Content Include="bin\Debug\images\Plants\Chomper\Chomper.gif" />
+    <Content Include="bin\Debug\images\Plants\Chomper\ChomperAttack.gif" />
+    <Content Include="bin\Debug\images\Plants\Chomper\ChomperDigest.gif" />
+    <Content Include="bin\Debug\images\Plants\CoffeeBean\CoffeeBean.gif" />
+    <Content Include="bin\Debug\images\Plants\CoffeeBean\CoffeeBeanEat.gif" />
+    <Content Include="bin\Debug\images\Plants\DoomShroom\DoomShroom.gif" />
+    <Content Include="bin\Debug\images\Plants\FlowerPot\FlowerPot.gif" />
+    <Content Include="bin\Debug\images\Plants\FumeShroom\FumeShroom.gif" />
+    <Content Include="bin\Debug\images\Plants\FumeShroom\FumeShroomAttack.gif" />
+    <Content Include="bin\Debug\images\Plants\FumeShroom\FumeShroomBullet.gif" />
+    <Content Include="bin\Debug\images\Plants\FumeShroom\FumeShroomSleep.gif" />
+    <Content Include="bin\Debug\images\Plants\Garlic\Garlic.gif" />
+    <Content Include="bin\Debug\images\Plants\Garlic\Garlic_body2.gif" />
+    <Content Include="bin\Debug\images\Plants\Garlic\Garlic_body3.gif" />
+    <Content Include="bin\Debug\images\Plants\GatlingPea\GatlingPea.gif" />
+    <Content Include="bin\Debug\images\Plants\GloomShroom\GloomShroom.gif" />
+    <Content Include="bin\Debug\images\Plants\GloomShroom\GloomShroomAttack.gif" />
+    <Content Include="bin\Debug\images\Plants\GloomShroom\GloomShroomBullet.gif" />
+    <Content Include="bin\Debug\images\Plants\GloomShroom\GloomShroomSleep.gif" />
+    <Content Include="bin\Debug\images\Plants\Gralic\Garlic_body2.gif" />
+    <Content Include="bin\Debug\images\Plants\Gralic\Garlic_body3.gif" />
+    <Content Include="bin\Debug\images\Plants\Gralic\Gralic.gif" />
+    <Content Include="bin\Debug\images\Plants\HypnoShroom\HypnoShroom.gif" />
+    <Content Include="bin\Debug\images\Plants\IceShroom\IceShroom.gif" />
+    <Content Include="bin\Debug\images\Plants\Jalapeno\Jalapeno.gif" />
+    <Content Include="bin\Debug\images\Plants\Jalapeno\JalapenoAttack.gif" />
+    <Content Include="bin\Debug\images\Plants\LilyPad\LilyPad.gif" />
+    <Content Include="bin\Debug\images\Plants\PB-10.gif" />
+    <Content Include="bin\Debug\images\Plants\PB00.gif" />
+    <Content Include="bin\Debug\images\Plants\PB01.gif" />
+    <Content Include="bin\Debug\images\Plants\PB10.gif" />
+    <Content Include="bin\Debug\images\Plants\PB11.gif" />
+    <Content Include="bin\Debug\images\Plants\PeaBulletHit.gif" />
+    <Content Include="bin\Debug\images\Plants\Peashooter\Peashooter.gif" />
+    <Content Include="bin\Debug\images\Plants\Plantern\Plantern.gif" />
+    <Content Include="bin\Debug\images\Plants\PotatoMine\ExplosionSpudow.gif" />
+    <Content Include="bin\Debug\images\Plants\PotatoMine\PotatoMine.gif" />
+    <Content Include="bin\Debug\images\Plants\PotatoMine\PotatoMineNotReady.gif" />
+    <Content Include="bin\Debug\images\Plants\PotatoMine\PotatoMine_mashed.gif" />
+    <Content Include="bin\Debug\images\Plants\PuffShroom\PuffShroom.gif" />
+    <Content Include="bin\Debug\images\Plants\PuffShroom\PuffShroomSleep.gif" />
+    <Content Include="bin\Debug\images\Plants\PumpkinHead\PumpkinHead.gif" />
+    <Content Include="bin\Debug\images\Plants\PumpkinHead\PumpkinHead1.gif" />
+    <Content Include="bin\Debug\images\Plants\PumpkinHead\PumpkinHead2.gif" />
+    <Content Include="bin\Debug\images\Plants\PumpkinHead\Pumpkin_back.gif" />
+    <Content Include="bin\Debug\images\Plants\PumpkinHead\pumpkin_damage1.gif" />
+    <Content Include="bin\Debug\images\Plants\PumpkinHead\Pumpkin_damage2.gif" />
+    <Content Include="bin\Debug\images\Plants\Repeater\Repeater.gif" />
+    <Content Include="bin\Debug\images\Plants\ScaredyShroom\ScaredyShroom.gif" />
+    <Content Include="bin\Debug\images\Plants\ScaredyShroom\ScaredyShroomCry.gif" />
+    <Content Include="bin\Debug\images\Plants\ScaredyShroom\ScaredyShroomSleep.gif" />
+    <Content Include="bin\Debug\images\Plants\SeaShroom\SeaShroom.gif" />
+    <Content Include="bin\Debug\images\Plants\SeaShroom\SeaShroomSleep.gif" />
+    <Content Include="bin\Debug\images\Plants\ShroomBullet.gif" />
+    <Content Include="bin\Debug\images\Plants\ShroomBulletHit.gif" />
+    <Content Include="bin\Debug\images\Plants\SnowPeashooterBullet.gif" />
+    <Content Include="bin\Debug\images\Plants\SnowPea\SnowPea.gif" />
+    <Content Include="bin\Debug\images\Plants\Spikerock\Spikerock.gif" />
+    <Content Include="bin\Debug\images\Plants\Spikeweed\Spikeweed.gif" />
+    <Content Include="bin\Debug\images\Plants\SplitPea\SplitPea.gif" />
+    <Content Include="bin\Debug\images\Plants\Squash\Squash.gif" />
+    <Content Include="bin\Debug\images\Plants\Squash\SquashAttack.gif" />
+    <Content Include="bin\Debug\images\Plants\Starfruit\Star.gif" />
+    <Content Include="bin\Debug\images\Plants\Starfruit\Starfruit.gif" />
+    <Content Include="bin\Debug\images\Plants\SunFlower\SunFlower.gif" />
+    <Content Include="bin\Debug\images\Plants\SunShroom\SunShroom.gif" />
+    <Content Include="bin\Debug\images\Plants\SunShroom\SunShroom2.gif" />
+    <Content Include="bin\Debug\images\Plants\SunShroom\SunShroomSleep.gif" />
+    <Content Include="bin\Debug\images\Plants\TallNut\TallNut.gif" />
+    <Content Include="bin\Debug\images\Plants\TallNut\TallnutCracked1.gif" />
+    <Content Include="bin\Debug\images\Plants\TallNut\TallnutCracked2.gif" />
+    <Content Include="bin\Debug\images\Plants\Threepeater\Threepeater.gif" />
+    <Content Include="bin\Debug\images\Plants\Torchwood\SputteringFire.gif" />
+    <Content Include="bin\Debug\images\Plants\Torchwood\Torchwood.gif" />
+    <Content Include="bin\Debug\images\Plants\TwinSunflower\TwinSunflower.gif" />
+    <Content Include="bin\Debug\images\Plants\WallNut\WallNut.gif" />
+    <Content Include="bin\Debug\images\Plants\WallNut\Wallnut_cracked1.gif" />
+    <Content Include="bin\Debug\images\Plants\WallNut\Wallnut_cracked2.gif" />
+    <Content Include="bin\Debug\images\PrepareGrowPlants.gif" />
+    <Content Include="bin\Debug\images\Sun.gif" />
+    <Content Include="bin\Debug\images\ZombiesWon.png" />
+    <Content Include="bin\Debug\images\Zombies\BoomDie1.gif" />
+    <Content Include="bin\Debug\images\Zombies\BucketheadZombie\BucketheadZombie.gif" />
+    <Content Include="bin\Debug\images\Zombies\BucketheadZombie\BucketheadZombieAttack.gif" />
+    <Content Include="bin\Debug\images\Zombies\ConeheadZombie\ConeheadZombie.gif" />
+    <Content Include="bin\Debug\images\Zombies\ConeheadZombie\ConeheadZombieAttack.gif" />
+    <Content Include="bin\Debug\images\Zombies\FlagZombie\FlagZombie.gif" />
+    <Content Include="bin\Debug\images\Zombies\FlagZombie\FlagZombieAttack.gif" />
+    <Content Include="bin\Debug\images\Zombies\FlagZombie\FlagZombieLostHead.gif" />
+    <Content Include="bin\Debug\images\Zombies\FlagZombie\FlagZombieLostHeadAttack.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\BoomDie.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\PoleVaultingZombie.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\PoleVaultingZombieAttack.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\PoleVaultingZombieDie.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\PoleVaultingZombieHead.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\PoleVaultingZombieJump.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\PoleVaultingZombieJump2.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\PoleVaultingZombieLostHead.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\PoleVaultingZombieLostHeadAttack.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\PoleVaultingZombieLostHeadWalk.gif" />
+    <Content Include="bin\Debug\images\Zombies\PoleVaultingZombie\PoleVaultingZombieWalk.gif" />
+    <Content Include="bin\Debug\images\Zombies\Zombie\Zombie.gif" />
+    <Content Include="bin\Debug\images\Zombies\Zombie\Zombie2.gif" />
+    <Content Include="bin\Debug\images\Zombies\Zombie\Zombie3.gif" />
+    <Content Include="bin\Debug\images\Zombies\Zombie\ZombieAttack.gif" />
+    <Content Include="bin\Debug\images\Zombies\Zombie\ZombieDie.gif" />
+    <Content Include="bin\Debug\images\Zombies\Zombie\ZombieHead.gif" />
+    <Content Include="bin\Debug\images\Zombies\Zombie\ZombieLostHead.gif" />
+    <Content Include="bin\Debug\images\Zombies\Zombie\ZombieLostHeadAttack.gif" />
+    <Content Include="bin\Release\images\Card\Plants\Blover.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Blover.png" />
+    <Content Include="bin\Release\images\Card\Plants\Cactus.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Cactus.png" />
+    <Content Include="bin\Release\images\Card\Plants\CherryBomb.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\CherryBomb.png" />
+    <Content Include="bin\Release\images\Card\Plants\Chomper.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Chomper.png" />
+    <Content Include="bin\Release\images\Card\Plants\CoffeeBean.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\CoffeeBean.png" />
+    <Content Include="bin\Release\images\Card\Plants\DoomShroom.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\DoomShroom.png" />
+    <Content Include="bin\Release\images\Card\Plants\FlowerPot.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\FlowerPot.png" />
+    <Content Include="bin\Release\images\Card\Plants\FumeShroom.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\FumeShroom.png" />
+    <Content Include="bin\Release\images\Card\Plants\Garlic.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Garlic.png" />
+    <Content Include="bin\Release\images\Card\Plants\GatlingPea.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\GatlingPea.png" />
+    <Content Include="bin\Release\images\Card\Plants\GloomShroom.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\GloomShroom.png" />
+    <Content Include="bin\Release\images\Card\Plants\Gralic.png" />
+    <Content Include="bin\Release\images\Card\Plants\HypnoShroom.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\HypnoShroom.png" />
+    <Content Include="bin\Release\images\Card\Plants\IceShroom.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\IceShroom.png" />
+    <Content Include="bin\Release\images\Card\Plants\Jalapeno.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Jalapeno.png" />
+    <Content Include="bin\Release\images\Card\Plants\LilyPad.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\LilyPad.png" />
+    <Content Include="bin\Release\images\Card\Plants\Peashooter.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Peashooter.gif" />
+    <Content Include="bin\Release\images\Card\Plants\Peashooter.png" />
+    <Content Include="bin\Release\images\Card\Plants\Plantern.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Plantern.png" />
+    <Content Include="bin\Release\images\Card\Plants\PotatoMine.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\PotatoMine.gif" />
+    <Content Include="bin\Release\images\Card\Plants\PotatoMine.png" />
+    <Content Include="bin\Release\images\Card\Plants\PuffShroom.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\PuffShroom.png" />
+    <Content Include="bin\Release\images\Card\Plants\PumpkinHead.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\PumpkinHead.gif" />
+    <Content Include="bin\Release\images\Card\Plants\PumpkinHead.png" />
+    <Content Include="bin\Release\images\Card\Plants\Repeater.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Repeater.png" />
+    <Content Include="bin\Release\images\Card\Plants\ScaredyShroom.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\ScaredyShroom.png" />
+    <Content Include="bin\Release\images\Card\Plants\SeaShroom.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\SeaShroom.png" />
+    <Content Include="bin\Release\images\Card\Plants\SnowPea.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\SnowPea.png" />
+    <Content Include="bin\Release\images\Card\Plants\Spikerock.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Spikerock.png" />
+    <Content Include="bin\Release\images\Card\Plants\Spikeweed.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Spikeweed.png" />
+    <Content Include="bin\Release\images\Card\Plants\SplitPea.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\SplitPea.png" />
+    <Content Include="bin\Release\images\Card\Plants\Squash.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Squash.png" />
+    <Content Include="bin\Release\images\Card\Plants\Starfruit.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Starfruit.png" />
+    <Content Include="bin\Release\images\Card\Plants\SunFlower.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\SunFlower.png" />
+    <Content Include="bin\Release\images\Card\Plants\SunShroom.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\SunShroom.png" />
+    <Content Include="bin\Release\images\Card\Plants\TallNut.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\TallNut.png" />
+    <Content Include="bin\Release\images\Card\Plants\Threepeater.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Threepeater.png" />
+    <Content Include="bin\Release\images\Card\Plants\Torchwood.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\Torchwood.png" />
+    <Content Include="bin\Release\images\Card\Plants\TwinSunflower.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\TwinSunflower.gif" />
+    <Content Include="bin\Release\images\Card\Plants\TwinSunflower.png" />
+    <Content Include="bin\Release\images\Card\Plants\WallNut.bmp" />
+    <Content Include="bin\Release\images\Card\Plants\WallNut.gif" />
+    <Content Include="bin\Release\images\Card\Plants\WallNut.png" />
+    <Content Include="bin\Release\images\FinalWave.gif" />
+    <Content Include="bin\Release\images\icon_poolcleaner.png" />
+    <Content Include="bin\Release\images\icon_roofcleaner.png" />
+    <Content Include="bin\Release\images\interface\Almanac_CloseButton.png" />
+    <Content Include="bin\Release\images\interface\Almanac_CloseButtonHighlight.png" />
+    <Content Include="bin\Release\images\interface\Almanac_IndexBack.jpg" />
+    <Content Include="bin\Release\images\interface\Almanac_IndexButton.png" />
+    <Content Include="bin\Release\images\interface\Almanac_IndexButtonHighlight.png" />
+    <Content Include="bin\Release\images\interface\Almanac_PlantBack.jpg" />
+    <Content Include="bin\Release\images\interface\Almanac_PlantCard.png" />
+    <Content Include="bin\Release\images\interface\Almanac_ZombieBack.jpg" />
+    <Content Include="bin\Release\images\interface\Almanac_ZombieCard.png" />
+    <Content Include="bin\Release\images\interface\Almanac_ZombieWindow2.png" />
+    <Content Include="bin\Release\images\interface\AwardScreen_Back.jpg" />
+    <Content Include="bin\Release\images\interface\background1.jpg" />
+    <Content Include="bin\Release\images\interface\background1unsodded.jpg" />
+    <Content Include="bin\Release\images\interface\background1unsodded2.jpg" />
+    <Content Include="bin\Release\images\interface\background1unsodded_1.jpg" />
+    <Content Include="bin\Release\images\interface\background2.jpg" />
+    <Content Include="bin\Release\images\interface\background3.jpg" />
+    <Content Include="bin\Release\images\interface\background4.jpg" />
+    <Content Include="bin\Release\images\interface\background5.jpg" />
+    <Content Include="bin\Release\images\interface\background6boss.jpg" />
+    <Content Include="bin\Release\images\interface\Button.png" />
+    <Content Include="bin\Release\images\interface\crater1.png" />
+    <Content Include="bin\Release\images\interface\dialog_bottomleft.png" />
+    <Content Include="bin\Release\images\interface\dialog_bottommiddle.png" />
+    <Content Include="bin\Release\images\interface\dialog_bottomright.png" />
+    <Content Include="bin\Release\images\interface\dialog_centerleft.png" />
+    <Content Include="bin\Release\images\interface\dialog_centermiddle.png" />
+    <Content Include="bin\Release\images\interface\dialog_centerright.png" />
+    <Content Include="bin\Release\images\interface\dialog_topleft.png" />
+    <Content Include="bin\Release\images\interface\dialog_topmiddle.png" />
+    <Content Include="bin\Release\images\interface\dialog_topright.png" />
+    <Content Include="bin\Release\images\interface\FlagMeterEmpty.png" />
+    <Content Include="bin\Release\images\interface\FlagMeterFull.png" />
+    <Content Include="bin\Release\images\interface\FlagMeterLevelProgress.png" />
+    <Content Include="bin\Release\images\interface\FlagMeterParts1.png" />
+    <Content Include="bin\Release\images\interface\FlagMeterParts2.png" />
+    <Content Include="bin\Release\images\interface\GrowSoil.png" />
+    <Content Include="bin\Release\images\interface\LogoLine.png" />
+    <Content Include="bin\Release\images\interface\PointerDown.gif" />
+    <Content Include="bin\Release\images\interface\PointerUP.gif" />
+    <Content Include="bin\Release\images\interface\SeedChooser_Background.png" />
+    <Content Include="bin\Release\images\interface\SelectorScreen_Almanac.png" />
+    <Content Include="bin\Release\images\interface\SelectorScreen_AlmanacHighlight.png" />
+    <Content Include="bin\Release\images\interface\Shovel.png" />
+    <Content Include="bin\Release\images\interface\ShovelBack.png" />
+    <Content Include="bin\Release\images\interface\sod1row.png" />
+    <Content Include="bin\Release\images\interface\sod3row.png" />
+    <Content Include="bin\Release\images\interface\SodRoll.png" />
+    <Content Include="bin\Release\images\interface\SodRollCap.png" />
+    <Content Include="bin\Release\images\interface\SunBack.png" />
+    <Content Include="bin\Release\images\interface\trophy.png" />
+    <Content Include="bin\Release\images\interface\ZombieNoteSmall.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\Almanac_ZombieWindow2.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\AwardScreen_Back.jpg" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\Button.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\dialog_bottomleft.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\dialog_bottommiddle.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\dialog_bottomright.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\dialog_centerleft.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\dialog_centermiddle.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\dialog_centerright.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\dialog_topleft.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\dialog_topmiddle.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\dialog_topright.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\FlagMeterEmpty.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\FlagMeterFull.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\FlagMeterLevelProgress.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\FlagMeterParts1.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\FlagMeterParts2.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\SeedChooser_Background.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\SelectorScreen_Almanac.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\Shovel.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\ShovelBack.png" />
+    <Content Include="bin\Release\images\interface\_vti_cnf\SunBack.png" />
+    <Content Include="bin\Release\images\LargeWave.gif" />
+    <Content Include="bin\Release\images\LawnMower.gif" />
+    <Content Include="bin\Release\images\Logo.jpg" />
+    <Content Include="bin\Release\images\plantshadow32.png" />
+    <Content Include="bin\Release\images\plantshadow8.png" />
+    <Content Include="bin\Release\images\Plants\Blover\Blover.gif" />
+    <Content Include="bin\Release\images\Plants\Cactus\Cactus.gif" />
+    <Content Include="bin\Release\images\Plants\CherryBomb\Boom.gif" />
+    <Content Include="bin\Release\images\Plants\CherryBomb\CherryBomb.gif" />
+    <Content Include="bin\Release\images\Plants\Chomper\Chomper.gif" />
+    <Content Include="bin\Release\images\Plants\Chomper\ChomperAttack.gif" />
+    <Content Include="bin\Release\images\Plants\Chomper\ChomperDigest.gif" />
+    <Content Include="bin\Release\images\Plants\CoffeeBean\CoffeeBean.gif" />
+    <Content Include="bin\Release\images\Plants\CoffeeBean\CoffeeBeanEat.gif" />
+    <Content Include="bin\Release\images\Plants\DoomShroom\DoomShroom.gif" />
+    <Content Include="bin\Release\images\Plants\FlowerPot\FlowerPot.gif" />
+    <Content Include="bin\Release\images\Plants\FumeShroom\FumeShroom.gif" />
+    <Content Include="bin\Release\images\Plants\FumeShroom\FumeShroomAttack.gif" />
+    <Content Include="bin\Release\images\Plants\FumeShroom\FumeShroomBullet.gif" />
+    <Content Include="bin\Release\images\Plants\FumeShroom\FumeShroomSleep.gif" />
+    <Content Include="bin\Release\images\Plants\Garlic\Garlic.gif" />
+    <Content Include="bin\Release\images\Plants\Garlic\Garlic_body2.gif" />
+    <Content Include="bin\Release\images\Plants\Garlic\Garlic_body3.gif" />
+    <Content Include="bin\Release\images\Plants\GatlingPea\GatlingPea.gif" />
+    <Content Include="bin\Release\images\Plants\GloomShroom\GloomShroom.gif" />
+    <Content Include="bin\Release\images\Plants\GloomShroom\GloomShroomAttack.gif" />
+    <Content Include="bin\Release\images\Plants\GloomShroom\GloomShroomBullet.gif" />
+    <Content Include="bin\Release\images\Plants\GloomShroom\GloomShroomSleep.gif" />
+    <Content Include="bin\Release\images\Plants\Gralic\Garlic_body2.gif" />
+    <Content Include="bin\Release\images\Plants\Gralic\Garlic_body3.gif" />
+    <Content Include="bin\Release\images\Plants\Gralic\Gralic.gif" />
+    <Content Include="bin\Release\images\Plants\HypnoShroom\HypnoShroom.gif" />
+    <Content Include="bin\Release\images\Plants\IceShroom\IceShroom.gif" />
+    <Content Include="bin\Release\images\Plants\Jalapeno\Jalapeno.gif" />
+    <Content Include="bin\Release\images\Plants\Jalapeno\JalapenoAttack.gif" />
+    <Content Include="bin\Release\images\Plants\LilyPad\LilyPad.gif" />
+    <Content Include="bin\Release\images\Plants\PB-10.gif" />
+    <Content Include="bin\Release\images\Plants\PB00.gif" />
+    <Content Include="bin\Release\images\Plants\PB01.gif" />
+    <Content Include="bin\Release\images\Plants\PB10.gif" />
+    <Content Include="bin\Release\images\Plants\PB11.gif" />
+    <Content Include="bin\Release\images\Plants\PeaBulletHit.gif" />
+    <Content Include="bin\Release\images\Plants\Peashooter\Peashooter.gif" />
+    <Content Include="bin\Release\images\Plants\Plantern\Plantern.gif" />
+    <Content Include="bin\Release\images\Plants\PotatoMine\ExplosionSpudow.gif" />
+    <Content Include="bin\Release\images\Plants\PotatoMine\PotatoMine.gif" />
+    <Content Include="bin\Release\images\Plants\PotatoMine\PotatoMineNotReady.gif" />
+    <Content Include="bin\Release\images\Plants\PotatoMine\PotatoMine_mashed.gif" />
+    <Content Include="bin\Release\images\Plants\PuffShroom\PuffShroom.gif" />
+    <Content Include="bin\Release\images\Plants\PuffShroom\PuffShroomSleep.gif" />
+    <Content Include="bin\Release\images\Plants\PumpkinHead\PumpkinHead.gif" />
+    <Content Include="bin\Release\images\Plants\PumpkinHead\PumpkinHead1.gif" />
+    <Content Include="bin\Release\images\Plants\PumpkinHead\PumpkinHead2.gif" />
+    <Content Include="bin\Release\images\Plants\PumpkinHead\Pumpkin_back.gif" />
+    <Content Include="bin\Release\images\Plants\PumpkinHead\pumpkin_damage1.gif" />
+    <Content Include="bin\Release\images\Plants\PumpkinHead\Pumpkin_damage2.gif" />
+    <Content Include="bin\Release\images\Plants\Repeater\Repeater.gif" />
+    <Content Include="bin\Release\images\Plants\ScaredyShroom\ScaredyShroom.gif" />
+    <Content Include="bin\Release\images\Plants\ScaredyShroom\ScaredyShroomCry.gif" />
+    <Content Include="bin\Release\images\Plants\ScaredyShroom\ScaredyShroomSleep.gif" />
+    <Content Include="bin\Release\images\Plants\SeaShroom\SeaShroom.gif" />
+    <Content Include="bin\Release\images\Plants\SeaShroom\SeaShroomSleep.gif" />
+    <Content Include="bin\Release\images\Plants\ShroomBullet.gif" />
+    <Content Include="bin\Release\images\Plants\ShroomBulletHit.gif" />
+    <Content Include="bin\Release\images\Plants\SnowPeashooterBullet.gif" />
+    <Content Include="bin\Release\images\Plants\SnowPea\SnowPea.gif" />
+    <Content Include="bin\Release\images\Plants\Spikerock\Spikerock.gif" />
+    <Content Include="bin\Release\images\Plants\Spikeweed\Spikeweed.gif" />
+    <Content Include="bin\Release\images\Plants\SplitPea\SplitPea.gif" />
+    <Content Include="bin\Release\images\Plants\Squash\Squash.gif" />
+    <Content Include="bin\Release\images\Plants\Squash\SquashAttack.gif" />
+    <Content Include="bin\Release\images\Plants\Starfruit\Star.gif" />
+    <Content Include="bin\Release\images\Plants\Starfruit\Starfruit.gif" />
+    <Content Include="bin\Release\images\Plants\SunFlower\SunFlower.gif" />
+    <Content Include="bin\Release\images\Plants\SunShroom\SunShroom.gif" />
+    <Content Include="bin\Release\images\Plants\SunShroom\SunShroom2.gif" />
+    <Content Include="bin\Release\images\Plants\SunShroom\SunShroomSleep.gif" />
+    <Content Include="bin\Release\images\Plants\TallNut\TallNut.gif" />
+    <Content Include="bin\Release\images\Plants\TallNut\TallnutCracked1.gif" />
+    <Content Include="bin\Release\images\Plants\TallNut\TallnutCracked2.gif" />
+    <Content Include="bin\Release\images\Plants\Threepeater\Threepeater.gif" />
+    <Content Include="bin\Release\images\Plants\Torchwood\SputteringFire.gif" />
+    <Content Include="bin\Release\images\Plants\Torchwood\Torchwood.gif" />
+    <Content Include="bin\Release\images\Plants\TwinSunflower\TwinSunflower.gif" />
+    <Content Include="bin\Release\images\Plants\WallNut\WallNut.gif" />
+    <Content Include="bin\Release\images\Plants\WallNut\Wallnut_cracked1.gif" />
+    <Content Include="bin\Release\images\Plants\WallNut\Wallnut_cracked2.gif" />
+    <Content Include="bin\Release\images\PrepareGrowPlants.gif" />
+    <Content Include="bin\Release\images\Sun.gif" />
+    <Content Include="bin\Release\images\ZombiesWon.png" />
+    <Content Include="bin\Release\images\Zombies\BoomDie1.gif" />
+    <Content Include="bin\Release\images\Zombies\BucketheadZombie\BucketheadZombie.gif" />
+    <Content Include="bin\Release\images\Zombies\BucketheadZombie\BucketheadZombieAttack.gif" />
+    <Content Include="bin\Release\images\Zombies\ConeheadZombie\ConeheadZombie.gif" />
+    <Content Include="bin\Release\images\Zombies\ConeheadZombie\ConeheadZombieAttack.gif" />
+    <Content Include="bin\Release\images\Zombies\FlagZombie\FlagZombie.gif" />
+    <Content Include="bin\Release\images\Zombies\FlagZombie\FlagZombieAttack.gif" />
+    <Content Include="bin\Release\images\Zombies\FlagZombie\FlagZombieLostHead.gif" />
+    <Content Include="bin\Release\images\Zombies\FlagZombie\FlagZombieLostHeadAttack.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\BoomDie.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\PoleVaultingZombie.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\PoleVaultingZombieAttack.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\PoleVaultingZombieDie.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\PoleVaultingZombieHead.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\PoleVaultingZombieJump.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\PoleVaultingZombieJump2.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\PoleVaultingZombieLostHead.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\PoleVaultingZombieLostHeadAttack.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\PoleVaultingZombieLostHeadWalk.gif" />
+    <Content Include="bin\Release\images\Zombies\PoleVaultingZombie\PoleVaultingZombieWalk.gif" />
+    <Content Include="bin\Release\images\Zombies\Zombie\Zombie.gif" />
+    <Content Include="bin\Release\images\Zombies\Zombie\Zombie2.gif" />
+    <Content Include="bin\Release\images\Zombies\Zombie\Zombie3.gif" />
+    <Content Include="bin\Release\images\Zombies\Zombie\ZombieAttack.gif" />
+    <Content Include="bin\Release\images\Zombies\Zombie\ZombieDie.gif" />
+    <Content Include="bin\Release\images\Zombies\Zombie\ZombieHead.gif" />
+    <Content Include="bin\Release\images\Zombies\Zombie\ZombieLostHead.gif" />
+    <Content Include="bin\Release\images\Zombies\Zombie\ZombieLostHeadAttack.gif" />
+    <Content Include="bin\Release\Zombie.exe" />
+    <Content Include="bin\Release\Zombie.pdb" />
+    <Content Include="images\Card\Plants\Blover.bmp" />
+    <Content Include="images\Card\Plants\Blover.png" />
+    <Content Include="images\Card\Plants\Cactus.bmp" />
+    <Content Include="images\Card\Plants\Cactus.png" />
+    <Content Include="images\Card\Plants\CherryBomb.bmp" />
+    <Content Include="images\Card\Plants\CherryBomb.png" />
+    <Content Include="images\Card\Plants\Chomper.bmp" />
+    <Content Include="images\Card\Plants\Chomper.png" />
+    <Content Include="images\Card\Plants\CoffeeBean.bmp" />
+    <Content Include="images\Card\Plants\CoffeeBean.png" />
+    <Content Include="images\Card\Plants\DoomShroom.bmp" />
+    <Content Include="images\Card\Plants\DoomShroom.png" />
+    <Content Include="images\Card\Plants\FlowerPot.bmp" />
+    <Content Include="images\Card\Plants\FlowerPot.png" />
+    <Content Include="images\Card\Plants\FumeShroom.bmp" />
+    <Content Include="images\Card\Plants\FumeShroom.png" />
+    <Content Include="images\Card\Plants\Garlic.bmp" />
+    <Content Include="images\Card\Plants\Garlic.png" />
+    <Content Include="images\Card\Plants\GatlingPea.bmp" />
+    <Content Include="images\Card\Plants\GatlingPea.png" />
+    <Content Include="images\Card\Plants\GloomShroom.bmp" />
+    <Content Include="images\Card\Plants\GloomShroom.png" />
+    <Content Include="images\Card\Plants\Gralic.png" />
+    <Content Include="images\Card\Plants\HypnoShroom.bmp" />
+    <Content Include="images\Card\Plants\HypnoShroom.png" />
+    <Content Include="images\Card\Plants\IceShroom.bmp" />
+    <Content Include="images\Card\Plants\IceShroom.png" />
+    <Content Include="images\Card\Plants\Jalapeno.bmp" />
+    <Content Include="images\Card\Plants\Jalapeno.png" />
+    <Content Include="images\Card\Plants\LilyPad.bmp" />
+    <Content Include="images\Card\Plants\LilyPad.png" />
+    <Content Include="images\Card\Plants\Peashooter.bmp" />
+    <Content Include="images\Card\Plants\Peashooter.gif" />
+    <Content Include="images\Card\Plants\Peashooter.png" />
+    <Content Include="images\Card\Plants\Plantern.bmp" />
+    <Content Include="images\Card\Plants\Plantern.png" />
+    <Content Include="images\Card\Plants\PotatoMine.bmp" />
+    <Content Include="images\Card\Plants\PotatoMine.gif" />
+    <Content Include="images\Card\Plants\PotatoMine.png" />
+    <Content Include="images\Card\Plants\PuffShroom.bmp" />
+    <Content Include="images\Card\Plants\PuffShroom.png" />
+    <Content Include="images\Card\Plants\PumpkinHead.bmp" />
+    <Content Include="images\Card\Plants\PumpkinHead.gif" />
+    <Content Include="images\Card\Plants\PumpkinHead.png" />
+    <Content Include="images\Card\Plants\Repeater.bmp" />
+    <Content Include="images\Card\Plants\Repeater.png" />
+    <Content Include="images\Card\Plants\ScaredyShroom.bmp" />
+    <Content Include="images\Card\Plants\ScaredyShroom.png" />
+    <Content Include="images\Card\Plants\SeaShroom.bmp" />
+    <Content Include="images\Card\Plants\SeaShroom.png" />
+    <Content Include="images\Card\Plants\SnowPea.bmp" />
+    <Content Include="images\Card\Plants\SnowPea.png" />
+    <Content Include="images\Card\Plants\Spikerock.bmp" />
+    <Content Include="images\Card\Plants\Spikerock.png" />
+    <Content Include="images\Card\Plants\Spikeweed.bmp" />
+    <Content Include="images\Card\Plants\Spikeweed.png" />
+    <Content Include="images\Card\Plants\SplitPea.bmp" />
+    <Content Include="images\Card\Plants\SplitPea.png" />
+    <Content Include="images\Card\Plants\Squash.bmp" />
+    <Content Include="images\Card\Plants\Squash.png" />
+    <Content Include="images\Card\Plants\Starfruit.bmp" />
+    <Content Include="images\Card\Plants\Starfruit.png" />
+    <Content Include="images\Card\Plants\SunFlower.bmp" />
+    <Content Include="images\Card\Plants\SunFlower.png" />
+    <Content Include="images\Card\Plants\SunShroom.bmp" />
+    <Content Include="images\Card\Plants\SunShroom.png" />
+    <Content Include="images\Card\Plants\TallNut.bmp" />
+    <Content Include="images\Card\Plants\TallNut.png" />
+    <Content Include="images\Card\Plants\Threepeater.bmp" />
+    <Content Include="images\Card\Plants\Threepeater.png" />
+    <Content Include="images\Card\Plants\Torchwood.bmp" />
+    <Content Include="images\Card\Plants\Torchwood.png" />
+    <Content Include="images\Card\Plants\TwinSunflower.bmp" />
+    <Content Include="images\Card\Plants\TwinSunflower.gif" />
+    <Content Include="images\Card\Plants\TwinSunflower.png" />
+    <Content Include="images\Card\Plants\WallNut.bmp" />
+    <Content Include="images\Card\Plants\WallNut.gif" />
+    <Content Include="images\Card\Plants\WallNut.png" />
+    <Content Include="images\FinalWave.gif" />
+    <Content Include="images\icon_poolcleaner.png" />
+    <Content Include="images\icon_roofcleaner.png" />
+    <Content Include="images\interface\Almanac_CloseButton.png" />
+    <Content Include="images\interface\Almanac_CloseButtonHighlight.png" />
+    <Content Include="images\interface\Almanac_IndexBack.jpg" />
+    <Content Include="images\interface\Almanac_IndexButton.png" />
+    <Content Include="images\interface\Almanac_IndexButtonHighlight.png" />
+    <Content Include="images\interface\Almanac_PlantBack.jpg" />
+    <Content Include="images\interface\Almanac_PlantCard.png" />
+    <Content Include="images\interface\Almanac_ZombieBack.jpg" />
+    <Content Include="images\interface\Almanac_ZombieCard.png" />
+    <Content Include="images\interface\Almanac_ZombieWindow2.png" />
+    <Content Include="images\interface\AwardScreen_Back.jpg" />
+    <Content Include="images\interface\background1.jpg" />
+    <Content Include="images\interface\background1unsodded.jpg" />
+    <Content Include="images\interface\background1unsodded2.jpg" />
+    <Content Include="images\interface\background1unsodded_1.jpg" />
+    <Content Include="images\interface\background2.jpg" />
+    <Content Include="images\interface\background3.jpg" />
+    <Content Include="images\interface\background4.jpg" />
+    <Content Include="images\interface\background5.jpg" />
+    <Content Include="images\interface\background6boss.jpg" />
+    <Content Include="images\interface\Button.png" />
+    <Content Include="images\interface\crater1.png" />
+    <Content Include="images\interface\dialog_bottomleft.png" />
+    <Content Include="images\interface\dialog_bottommiddle.png" />
+    <Content Include="images\interface\dialog_bottomright.png" />
+    <Content Include="images\interface\dialog_centerleft.png" />
+    <Content Include="images\interface\dialog_centermiddle.png" />
+    <Content Include="images\interface\dialog_centerright.png" />
+    <Content Include="images\interface\dialog_topleft.png" />
+    <Content Include="images\interface\dialog_topmiddle.png" />
+    <Content Include="images\interface\dialog_topright.png" />
+    <Content Include="images\interface\FlagMeterEmpty.png" />
+    <Content Include="images\interface\FlagMeterFull.png" />
+    <Content Include="images\interface\FlagMeterLevelProgress.png" />
+    <Content Include="images\interface\FlagMeterParts1.png" />
+    <Content Include="images\interface\FlagMeterParts2.png" />
+    <Content Include="images\interface\GrowSoil.png" />
+    <Content Include="images\interface\LogoLine.png" />
+    <Content Include="images\interface\PointerDown.gif" />
+    <Content Include="images\interface\PointerUP.gif" />
+    <Content Include="images\interface\SeedChooser_Background.png" />
+    <Content Include="images\interface\SelectorScreen_Almanac.png" />
+    <Content Include="images\interface\SelectorScreen_AlmanacHighlight.png" />
+    <Content Include="images\interface\Shovel.png" />
+    <Content Include="images\interface\ShovelBack.png" />
+    <Content Include="images\interface\sod1row.png" />
+    <Content Include="images\interface\sod3row.png" />
+    <Content Include="images\interface\SodRoll.png" />
+    <Content Include="images\interface\SodRollCap.png" />
+    <Content Include="images\interface\SunBack.png" />
+    <Content Include="images\interface\trophy.png" />
+    <Content Include="images\interface\ZombieNoteSmall.png" />
+    <Content Include="images\interface\_vti_cnf\Almanac_ZombieWindow2.png" />
+    <Content Include="images\interface\_vti_cnf\AwardScreen_Back.jpg" />
+    <Content Include="images\interface\_vti_cnf\Button.png" />
+    <Content Include="images\interface\_vti_cnf\dialog_bottomleft.png" />
+    <Content Include="images\interface\_vti_cnf\dialog_bottommiddle.png" />
+    <Content Include="images\interface\_vti_cnf\dialog_bottomright.png" />
+    <Content Include="images\interface\_vti_cnf\dialog_centerleft.png" />
+    <Content Include="images\interface\_vti_cnf\dialog_centermiddle.png" />
+    <Content Include="images\interface\_vti_cnf\dialog_centerright.png" />
+    <Content Include="images\interface\_vti_cnf\dialog_topleft.png" />
+    <Content Include="images\interface\_vti_cnf\dialog_topmiddle.png" />
+    <Content Include="images\interface\_vti_cnf\dialog_topright.png" />
+    <Content Include="images\interface\_vti_cnf\FlagMeterEmpty.png" />
+    <Content Include="images\interface\_vti_cnf\FlagMeterFull.png" />
+    <Content Include="images\interface\_vti_cnf\FlagMeterLevelProgress.png" />
+    <Content Include="images\interface\_vti_cnf\FlagMeterParts1.png" />
+    <Content Include="images\interface\_vti_cnf\FlagMeterParts2.png" />
+    <Content Include="images\interface\_vti_cnf\SeedChooser_Background.png" />
+    <Content Include="images\interface\_vti_cnf\SelectorScreen_Almanac.png" />
+    <Content Include="images\interface\_vti_cnf\Shovel.png" />
+    <Content Include="images\interface\_vti_cnf\ShovelBack.png" />
+    <Content Include="images\interface\_vti_cnf\SunBack.png" />
+    <Content Include="images\LargeWave.gif" />
+    <Content Include="images\LawnMower.gif" />
+    <Content Include="images\Logo.jpg" />
+    <Content Include="images\plantshadow32.png" />
+    <Content Include="images\plantshadow8.png" />
+    <Content Include="images\Plants\Blover\Blover.gif" />
+    <Content Include="images\Plants\Cactus\Cactus.gif" />
+    <Content Include="images\Plants\CherryBomb\Boom.gif" />
+    <Content Include="images\Plants\CherryBomb\CherryBomb.gif" />
+    <Content Include="images\Plants\Chomper\Chomper.gif" />
+    <Content Include="images\Plants\Chomper\ChomperAttack.gif" />
+    <Content Include="images\Plants\Chomper\ChomperDigest.gif" />
+    <Content Include="images\Plants\CoffeeBean\CoffeeBean.gif" />
+    <Content Include="images\Plants\CoffeeBean\CoffeeBeanEat.gif" />
+    <Content Include="images\Plants\DoomShroom\DoomShroom.gif" />
+    <Content Include="images\Plants\FlowerPot\FlowerPot.gif" />
+    <Content Include="images\Plants\FumeShroom\FumeShroom.gif" />
+    <Content Include="images\Plants\FumeShroom\FumeShroomAttack.gif" />
+    <Content Include="images\Plants\FumeShroom\FumeShroomBullet.gif" />
+    <Content Include="images\Plants\FumeShroom\FumeShroomSleep.gif" />
+    <Content Include="images\Plants\Garlic\Garlic.gif" />
+    <Content Include="images\Plants\Garlic\Garlic_body2.gif" />
+    <Content Include="images\Plants\Garlic\Garlic_body3.gif" />
+    <Content Include="images\Plants\GatlingPea\GatlingPea.gif" />
+    <Content Include="images\Plants\GloomShroom\GloomShroom.gif" />
+    <Content Include="images\Plants\GloomShroom\GloomShroomAttack.gif" />
+    <Content Include="images\Plants\GloomShroom\GloomShroomBullet.gif" />
+    <Content Include="images\Plants\GloomShroom\GloomShroomSleep.gif" />
+    <Content Include="images\Plants\Gralic\Garlic_body2.gif" />
+    <Content Include="images\Plants\Gralic\Garlic_body3.gif" />
+    <Content Include="images\Plants\Gralic\Gralic.gif" />
+    <Content Include="images\Plants\HypnoShroom\HypnoShroom.gif" />
+    <Content Include="images\Plants\IceShroom\IceShroom.gif" />
+    <Content Include="images\Plants\Jalapeno\Jalapeno.gif" />
+    <Content Include="images\Plants\Jalapeno\JalapenoAttack.gif" />
+    <Content Include="images\Plants\LilyPad\LilyPad.gif" />
+    <Content Include="images\Plants\PB-10.gif" />
+    <Content Include="images\Plants\PB00.gif" />
+    <Content Include="images\Plants\PB01.gif" />
+    <Content Include="images\Plants\PB10.gif" />
+    <Content Include="images\Plants\PB11.gif" />
+    <Content Include="images\Plants\PeaBulletHit.gif" />
+    <Content Include="images\Plants\Peashooter\Peashooter.gif" />
+    <Content Include="images\Plants\Plantern\Plantern.gif" />
+    <Content Include="images\Plants\PotatoMine\ExplosionSpudow.gif" />
+    <Content Include="images\Plants\PotatoMine\PotatoMine.gif" />
+    <Content Include="images\Plants\PotatoMine\PotatoMineNotReady.gif" />
+    <Content Include="images\Plants\PotatoMine\PotatoMine_mashed.gif" />
+    <Content Include="images\Plants\PuffShroom\PuffShroom.gif" />
+    <Content Include="images\Plants\PuffShroom\PuffShroomSleep.gif" />
+    <Content Include="images\Plants\PumpkinHead\PumpkinHead.gif" />
+    <Content Include="images\Plants\PumpkinHead\PumpkinHead1.gif" />
+    <Content Include="images\Plants\PumpkinHead\PumpkinHead2.gif" />
+    <Content Include="images\Plants\PumpkinHead\Pumpkin_back.gif" />
+    <Content Include="images\Plants\PumpkinHead\pumpkin_damage1.gif" />
+    <Content Include="images\Plants\PumpkinHead\Pumpkin_damage2.gif" />
+    <Content Include="images\Plants\Repeater\Repeater.gif" />
+    <Content Include="images\Plants\ScaredyShroom\ScaredyShroom.gif" />
+    <Content Include="images\Plants\ScaredyShroom\ScaredyShroomCry.gif" />
+    <Content Include="images\Plants\ScaredyShroom\ScaredyShroomSleep.gif" />
+    <Content Include="images\Plants\SeaShroom\SeaShroom.gif" />
+    <Content Include="images\Plants\SeaShroom\SeaShroomSleep.gif" />
+    <Content Include="images\Plants\ShroomBullet.gif" />
+    <Content Include="images\Plants\ShroomBulletHit.gif" />
+    <Content Include="images\Plants\SnowPeashooterBullet.gif" />
+    <Content Include="images\Plants\SnowPea\SnowPea.gif" />
+    <Content Include="images\Plants\Spikerock\Spikerock.gif" />
+    <Content Include="images\Plants\Spikeweed\Spikeweed.gif" />
+    <Content Include="images\Plants\SplitPea\SplitPea.gif" />
+    <Content Include="images\Plants\Squash\Squash.gif" />
+    <Content Include="images\Plants\Squash\SquashAttack.gif" />
+    <Content Include="images\Plants\Starfruit\Star.gif" />
+    <Content Include="images\Plants\Starfruit\Starfruit.gif" />
+    <Content Include="images\Plants\SunFlower\SunFlower.gif" />
+    <Content Include="images\Plants\SunShroom\SunShroom.gif" />
+    <Content Include="images\Plants\SunShroom\SunShroom2.gif" />
+    <Content Include="images\Plants\SunShroom\SunShroomSleep.gif" />
+    <Content Include="images\Plants\TallNut\TallNut.gif" />
+    <Content Include="images\Plants\TallNut\TallnutCracked1.gif" />
+    <Content Include="images\Plants\TallNut\TallnutCracked2.gif" />
+    <Content Include="images\Plants\Threepeater\Threepeater.gif" />
+    <Content Include="images\Plants\Torchwood\SputteringFire.gif" />
+    <Content Include="images\Plants\Torchwood\Torchwood.gif" />
+    <Content Include="images\Plants\TwinSunflower\TwinSunflower.gif" />
+    <Content Include="images\Plants\WallNut\WallNut.gif" />
+    <Content Include="images\Plants\WallNut\Wallnut_cracked1.gif" />
+    <Content Include="images\Plants\WallNut\Wallnut_cracked2.gif" />
+    <Content Include="images\PrepareGrowPlants.gif" />
+    <Content Include="images\Sun.gif" />
+    <Content Include="images\ZombiesWon.png" />
+    <Content Include="images\Zombies\BoomDie1.gif" />
+    <Content Include="images\Zombies\BucketheadZombie\BucketheadZombie.gif" />
+    <Content Include="images\Zombies\BucketheadZombie\BucketheadZombieAttack.gif" />
+    <Content Include="images\Zombies\ConeheadZombie\ConeheadZombie.gif" />
+    <Content Include="images\Zombies\ConeheadZombie\ConeheadZombieAttack.gif" />
+    <Content Include="images\Zombies\FlagZombie\FlagZombie.gif" />
+    <Content Include="images\Zombies\FlagZombie\FlagZombieAttack.gif" />
+    <Content Include="images\Zombies\FlagZombie\FlagZombieLostHead.gif" />
+    <Content Include="images\Zombies\FlagZombie\FlagZombieLostHeadAttack.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\BoomDie.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\PoleVaultingZombie.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\PoleVaultingZombieAttack.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\PoleVaultingZombieDie.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\PoleVaultingZombieHead.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\PoleVaultingZombieJump.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\PoleVaultingZombieJump2.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\PoleVaultingZombieLostHead.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\PoleVaultingZombieLostHeadAttack.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\PoleVaultingZombieLostHeadWalk.gif" />
+    <Content Include="images\Zombies\PoleVaultingZombie\PoleVaultingZombieWalk.gif" />
+    <Content Include="images\Zombies\Zombie\Zombie.gif" />
+    <Content Include="images\Zombies\Zombie\Zombie2.gif" />
+    <Content Include="images\Zombies\Zombie\Zombie3.gif" />
+    <Content Include="images\Zombies\Zombie\ZombieAttack.gif" />
+    <Content Include="images\Zombies\Zombie\ZombieDie.gif" />
+    <Content Include="images\Zombies\Zombie\ZombieHead.gif" />
+    <Content Include="images\Zombies\Zombie\ZombieLostHead.gif" />
+    <Content Include="images\Zombies\Zombie\ZombieLostHeadAttack.gif" />
+    <Content Include="obj\Debug\Zombie.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Zombie.exe" />
+    <Content Include="obj\Debug\Zombie.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
